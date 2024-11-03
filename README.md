@@ -6,6 +6,7 @@
 - [Development server](#development-server)
 - [Production server](#production-server)
 - [Folder Structure](#folder-structure)
+- [Linting/Formatting](#linting-formatting)
 
 ### Setup
 
@@ -64,4 +65,12 @@ npm run start
       |..
 ```
 
----
+### Linting/Formatting
+
+Make sure you have Prettier and ESLint working in your editor.
+
+Run all linting/formatting:
+
+```bash
+npx next lint
+```
