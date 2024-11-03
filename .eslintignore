@@ -1,0 +1,10 @@
+.cache
+build
+**/node_modules/**
+README.md
+!.vscode
+!.prettierrc.cjs
+.git
+.idea
+**/*.d.ts
+dist

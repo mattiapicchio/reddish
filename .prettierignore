@@ -1,0 +1,23 @@
+.DS_Store
+node_modules
+/build
+.vscode
+.env
+.env.*
+!.env.example
+
+**/.solid
+**/.turbo
+**/.out
+**/.next
+**/.dist
+**/.build
+**/build
+**/node_modules
+.vscode
+.idea
+
+# Ignore files for PNPM, NPM and YARN
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
