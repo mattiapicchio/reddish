@@ -7,6 +7,7 @@
 - [Production server](#production-server)
 - [Folder Structure](#folder-structure)
 - [Linting/Formatting](#linting-formatting)
+- [Documentation](#documentation)
 
 ### Setup
 
@@ -58,7 +59,7 @@ npm run start
               |
               |-data: Place shared data like constants, strings, json, etc
               |
-              |-lib: folder for third party libraries (facade patterns)
+              |-lib: folder for third party libraries (facade pattern)
       |
       |-utils: only utility functions, small and simple pure functions.
       |
@@ -67,10 +68,22 @@ npm run start
 
 ### Linting/Formatting
 
-Make sure you have Prettier and ESLint working in your editor.
+Make sure you have Prettier and ESLint working in your editor and enable format on save.
 
 Run all linting/formatting:
 
-```bash
+```sh
 npx next lint
 ```
+
+### Documentation
+
+[Next.js](https://nextjs.org/docs)
+
+[React](https://react.dev/)
+
+[React 19](https://react.dev/blog/2024/04/25/react-19)
+
+[Tailwind](https://v2.tailwindcss.com/docs)
+
+[Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
