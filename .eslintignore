@@ -1,7 +1,7 @@
 .cache
 build
 **/node_modules/**
-README.md
+*.md
 !.vscode
 !.prettierrc.cjs
 .git
