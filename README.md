@@ -73,6 +73,12 @@ Make sure you have Prettier and ESLint working in your editor and enable format 
 Run all linting/formatting:
 
 ```sh
+npm run lint
+```
+
+or
+
+```sh
 npx next lint
 ```
 
