@@ -9,18 +9,20 @@ export type FetchPostResponse = {
 }
 
 export type Post = {
-  id: string
+  id: number
   title: string
   content: string
   createdAt: string // ISO 8601 date format
   votes: number
-  replies: Reply | Reply[]
+  replies: Reply[]
 }
 
 export type Reply = {
-  id: string
+  id: number
   content: string
   createdAt: string // ISO 8601 date format
   votes: number
-  repllies: Reply | Reply[]
+  replies: Reply[]
 }
+
+export type Node = Reply | Post
