@@ -8,7 +8,7 @@ type PostTeaserProps = {
   className?: string
 }
 
-export default async function PostTeaser({ post, className }: PostTeaserProps) {
+export default function PostTeaser({ post, className }: PostTeaserProps) {
   return (
     <Link href={`${ROUTES.POST}/${post.id}`}>
       <li className={cn('flex-col border-y border-gray-dark p-2', className)}>
