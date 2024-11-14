@@ -23,6 +23,55 @@ const config: Config = {
     boxShadow: {
       'custom-light': '0 4px 8px rgba(255, 255, 255, 0.2)',
     },
+    fontSize: {
+      large: ['1.75rem', '1.313rem'], // to replace
+      xlHeading: [
+        '2rem',
+        {
+          lineHeight: '2rem',
+          letterSpacing: '-1.6px',
+          fontWeight: '900',
+        },
+      ],
+      largeHeading: [
+        '1.75rem',
+        {
+          lineHeight: '1.75rem',
+          letterSpacing: '-1.4px',
+          fontWeight: '900',
+        },
+      ],
+      mediumHeading: [
+        '1.125rem',
+        {
+          lineHeight: '1.35rem',
+          letterSpacing: '-0.54px',
+          fontWeight: '900',
+        },
+      ],
+      smallHeading: [
+        '0.875rem',
+        {
+          lineHeight: '0.875rem',
+          letterSpacing: '-0.7px',
+          fontWeight: '900',
+        },
+      ],
+      body: [
+        '1.125rem',
+        {
+          lineHeight: '1.313rem',
+          fontWeight: '500',
+        },
+      ],
+      label: [
+        '0.75rem',
+        {
+          lineHeight: '1.05rem',
+          fontWeight: '900',
+        },
+      ],
+    },
   },
   plugins: [
     plugin(({ addComponents, theme }) => {
