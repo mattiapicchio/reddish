@@ -2,12 +2,20 @@
 
 #### Table of Contents
 
+- [Project](#project)
 - [Setup](#setup)
 - [Development server](#development-server)
 - [Production server](#production-server)
 - [Folder Structure](#folder-structure)
 - [Linting/Formatting](#linting-formatting)
 - [Documentation](#documentation)
+
+### Project
+
+Reddit like messaging board with infinite nested comments. \
+API functionality is mocked using Next.js route handlers
+
+Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript.
 
 ### Setup
 
@@ -41,17 +49,19 @@ npm run start
 
 ### Folder Structure
 
+Alongside Next.js file based routing system, the project follows a feature based folder structure. Each feature has its own folder with all the code related to that feature in one place. This defines determined data flows within the architecture for increased maintainability and scalability (which can also be enforced via eslint rules if preferred).
+
 ```
 ../src
       |..
       |
-      |-components : place components here.
+      |-components/ : place components here. Use subfolders for different components types, e.g. icons, form, etc.
+                  |
+                  |-ui: for UI components from external ui libraries. If needed, use the facade pattern to create a single point of entanglement with the external library.
       |
-      |-connectivity: this is where you define network/api requests.
+      |-connectivity: this is where you define network/api requests and helper functions for fetching strategy.
       |
       |-helpers: hooks, helper methods that are not utils, restrict functions, etc
-      |
-      |-pages: place all the pages here.
       |
       |-features: all the code for features in one single place. E.g., all the code for authentication can be in its own subfolder. Can be seen as a mini version of the /src folder for each feature.
       |
@@ -59,7 +69,9 @@ npm run start
               |
               |-data: Place shared data like constants, strings, json, etc
               |
-              |-lib: folder for third party libraries (facade pattern)
+              |-lib: folder for third party libraries (use facade pattern)
+      |
+      |-assets: css files, vector images, fonts, etc.
       |
       |-utils: only utility functions, small and simple pure functions.
       |
