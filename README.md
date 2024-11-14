@@ -45,7 +45,7 @@ npm run start
 ../src
       |..
       |
-      |-components : place components here according to atomic web design principles.
+      |-components : place components here.
       |
       |-connectivity: this is where you define network/api requests.
       |
@@ -91,5 +91,3 @@ npx next lint
 [React 19](https://react.dev/blog/2024/04/25/react-19)
 
 [Tailwind](https://v2.tailwindcss.com/docs)
-
-[Atomic Web Design](https://bradfrost.com/blog/post/atomic-web-design/)
