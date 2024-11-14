@@ -1,7 +1,20 @@
-export default function Home() {
+import { getPosts } from '@/features/posts/api/api.posts'
+import PostsListing from '@/features/posts/components/PostsListing'
+
+async function _fetchPosts() {
+  'use server'
+
+  return await getPosts()
+}
+
+export default async function Home() {
+  const { error, data: posts } = await _fetchPosts()
+
+  if (error) return <div>Handle error</div>
+
   return (
-    <div>
-      <main>Reddish</main>
+    <div className="page-container">
+      <PostsListing listing={posts} />
     </div>
   )
 }
