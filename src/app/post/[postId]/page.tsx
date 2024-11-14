@@ -1,7 +1,7 @@
+import BackButton from '@/components/BackButton'
 import { getPost } from '@/features/posts/api/api.posts'
-// import { formatDate } from '@/utils/dateUtils'
+import RepliesTree from '@/features/posts/components/RepliesTree'
 import { ROUTES } from '@/utils/routes'
-import Link from 'next/link'
 
 type PostPageProps = {
   params: Params
@@ -33,21 +33,27 @@ async function _fetchPost(id: string) {
   return await getPost({ id })
 }
 
-export default async function StarshipPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: PostPageProps) {
   const { postId } = await params
 
   const { error, data: post } = await _fetchPost(postId)
-
   // TODO: add error handling
   if (error) return <div>Handle Post error</div>
 
-  // TODO: design back button
+  const { title, content, replies } = post
+
   return (
     <div className="page-container flex min-h-screen flex-col">
-      <Link href={`${ROUTES.HOME}`} className="button-primary w-fit">
-        <span>&lt;</span>
-      </Link>
-      {post?.title} - {post?.id}
+      <BackButton href={ROUTES.HOME} className="" />
+      <article>
+        <h3>{title}</h3>
+        <p>{content}</p>
+        {replies && (
+          <div>
+            <RepliesTree replies={replies} />
+          </div>
+        )}
+      </article>
     </div>
   )
 }
