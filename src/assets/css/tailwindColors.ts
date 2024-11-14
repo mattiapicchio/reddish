@@ -1,7 +1,7 @@
 export const COLORS = {
   gray: {
-    DEFAULT: '#707174',
-    dark: '#5A5A5A',
+    DEFAULT: '#0F1113',
+    dark: '#181C1F',
     soft: '#CCCCCC',
   },
   black: {
@@ -10,4 +10,6 @@ export const COLORS = {
   },
   current: 'currentColor',
   transparent: 'transparent',
+  'brand-orange': '#FF4500',
+  'brand-blue': '#0079D3',
 }

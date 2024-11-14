@@ -15,3 +15,9 @@
     @apply text-black antialiased;
   }
 }
+
+@layer components {
+  .page-container {
+    @apply container mx-auto px-4 pb-40 pt-6 sm:px-8 sm:pt-14 xl:px-12;
+  }
+}
