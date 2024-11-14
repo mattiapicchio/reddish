@@ -1,6 +1,6 @@
+export const dynamic = 'auto'
 import mockData from '@/shared/data/mockData'
 
-// FAKE API
 export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
   const postId = (await params).id
 
@@ -8,5 +8,14 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
 
   if (!post) return Response.json({ error: 'Invalid post', data: undefined })
 
-  return Response.json({ error: undefined, data: post })
+  return new Response(JSON.stringify({ error: undefined, data: post }), {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+      Pragma: 'no-cache',
+      Expires: '0',
+      'Surrogate-Control': 'no-store',
+    },
+  })
 }
