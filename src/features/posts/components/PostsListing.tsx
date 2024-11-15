@@ -3,9 +3,10 @@
 import { cn } from '@/utils/cn'
 import { Post } from '../api/types.posts'
 import PostTeaser from './PostTeaser'
-import { Textarea } from '@/components/ui/Textarea'
+import { Textarea } from '@/components/ui/form/Textarea'
 import { useState } from 'react'
 import { getPosts, postPost } from '../api/api.posts'
+import InputWithLabel from '@/components/ui/form/InputWithLabel'
 
 type PostsListingProps = {
   listing: Post[]
@@ -40,16 +41,21 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
       <ol className="space-y-3">
         {posts?.map((post: Post) => <PostTeaser post={post} key={post.id} />)}
       </ol>
-      <form onSubmit={handleSubmit}>
-        <input
-          className="text-black"
+      <form onSubmit={handleSubmit} className="mt-6 border-t border-brand-orange">
+        <InputWithLabel
+          className="mt-6 text-black"
           type="text"
-          id="title"
           title="title"
           value={title}
+          label="Add a new post"
+          placeholder="New post title"
           onChange={(event) => setTitle(event.target.value)}
         />
-        <Textarea id="content" onChange={(event) => setContent(event.target.value)} />
+        <Textarea
+          id="content"
+          onChange={(event) => setContent(event.target.value)}
+          className="mt-3"
+        />
         <button type="submit">Submit</button>
       </form>
     </section>

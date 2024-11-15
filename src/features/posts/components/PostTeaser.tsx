@@ -11,9 +11,9 @@ type PostTeaserProps = {
 export default function PostTeaser({ post, className }: PostTeaserProps) {
   return (
     <Link href={`${ROUTES.POST}/${post.id}`}>
-      <li className={cn('flex-col border-y border-gray-dark p-2', className)}>
+      <li className={cn('flex-col border-t border-gray-dark p-2', className)}>
         <div className="cursor-pointer rounded-md hover:bg-gray-dark">
-          <h2>{post.title}</h2>
+          <h2 className="text-brand-blue">{post.title}</h2>
           <p>{post.content}</p>
         </div>
         <div>add action buttons</div>
