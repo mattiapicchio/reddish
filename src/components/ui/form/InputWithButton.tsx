@@ -32,9 +32,8 @@ export function InputWithButton({
   ...inputProps
 }: InputWithButtonProps) {
   return (
-    <div className={cn('flex w-full max-w-sm items-center space-x-2', className)}>
+    <div className={cn('flex w-full max-w-sm items-center space-x-2', className)} ref={ref}>
       <Input
-        ref={ref}
         type={inputType}
         placeholder={placeholder}
         {...inputProps}
