@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/form/Textarea'
 import { useState } from 'react'
 import { getPosts, postPost } from '../api/api.posts'
 import InputWithLabel from '@/components/ui/form/InputWithLabel'
+import { Button } from '@/components/ui/Button'
 
 type PostsListingProps = {
   listing: Post[]
@@ -54,9 +55,11 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
         <Textarea
           id="content"
           onChange={(event) => setContent(event.target.value)}
-          className="mt-3"
+          className="mt-3 w-full max-w-lg"
         />
-        <button type="submit">Submit</button>
+        <Button type="submit" className="mt-4">
+          Submit
+        </Button>
       </form>
     </section>
   )

@@ -16,7 +16,6 @@ export default function PostTeaser({ post, className }: PostTeaserProps) {
           <h2 className="text-brand-blue">{post.title}</h2>
           <p>{post.content}</p>
         </div>
-        <div>add action buttons</div>
       </li>
     </Link>
   )
