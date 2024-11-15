@@ -10,6 +10,8 @@ export const COLORS = {
   },
   current: 'currentColor',
   transparent: 'transparent',
+  sunflare: '#F7C927',
+  voltgreen: '#6CF401',
   'brand-orange': '#FF4500',
   'brand-blue': '#0079D3',
   background: 'hsl(var(--background))',
