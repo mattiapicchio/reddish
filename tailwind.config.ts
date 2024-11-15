@@ -23,6 +23,11 @@ const config: Config = {
     boxShadow: {
       'custom-light': '0 4px 8px rgba(255, 255, 255, 0.2)',
     },
+    borderRadius: {
+      lg: `var(--radius)`,
+      md: `calc(var(--radius) - 2px)`,
+      sm: 'calc(var(--radius) - 4px)',
+    },
     fontSize: {
       large: ['1.75rem', '1.313rem'], // to replace
       xlHeading: [
@@ -50,11 +55,11 @@ const config: Config = {
         },
       ],
       smallHeading: [
-        '0.875rem',
+        '1rem',
         {
           lineHeight: '0.875rem',
           letterSpacing: '-0.7px',
-          fontWeight: '900',
+          fontWeight: '600',
         },
       ],
       body: [
@@ -74,19 +79,29 @@ const config: Config = {
     },
   },
   plugins: [
-    plugin(({ addComponents, theme }) => {
-      addComponents({
-        '.button-primary': {
-          backgroundColor: theme('colors.brand-orange'),
-          color: theme('colors.white'),
-          borderRadius: theme('borderRadius.md'),
-          padding: `${theme('spacing.1')} ${theme('spacing.4')}`,
-
-          '&:hover': {
-            backgroundColor: theme('colors.gray.dark'),
-          },
+    // https://github.com/jamiebuilds/tailwindcss-animate
+    require('tailwindcss-animate'),
+    plugin(({ addComponents, addUtilities, theme }) => {
+      addUtilities({
+        '.ease-cube': {
+          'transition-timing-function': 'cubic-bezier(.25, 0, .2, 1)',
         },
-      })
+        '.transition-opacity': {
+          transition: 'opacity 150ms ease-in-out',
+        },
+      }),
+        addComponents({
+          '.button-primary': {
+            backgroundColor: theme('colors.brand-orange'),
+            color: theme('colors.white'),
+            borderRadius: theme('borderRadius.md'),
+            padding: `${theme('spacing.1')} ${theme('spacing.4')}`,
+
+            '&:hover': {
+              backgroundColor: theme('colors.gray.dark'),
+            },
+          },
+        })
     }),
   ],
 }
