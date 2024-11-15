@@ -24,7 +24,7 @@ export default function InputWithLabel({
 }: InputWithLabelProps) {
   return (
     <div className={cn('grid w-full max-w-sm items-center gap-1.5', className)}>
-      <label htmlFor={title} className="text-smallHeading text-brand-orange">
+      <label htmlFor={title} className="text-label text-brand-orange">
         {label}
       </label>
       <Input

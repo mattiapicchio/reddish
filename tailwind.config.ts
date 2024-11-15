@@ -43,19 +43,18 @@ const config: Config = {
         {
           lineHeight: '1.75rem',
           letterSpacing: '-1.4px',
-          fontWeight: '900',
+          fontWeight: '700',
         },
       ],
       mediumHeading: [
-        '1.125rem',
+        '1.5rem',
         {
           lineHeight: '1.35rem',
-          letterSpacing: '-0.54px',
-          fontWeight: '900',
+          fontWeight: '600',
         },
       ],
       smallHeading: [
-        '1rem',
+        '1.125rem',
         {
           lineHeight: '0.875rem',
           letterSpacing: '-0.7px',
@@ -63,17 +62,17 @@ const config: Config = {
         },
       ],
       body: [
-        '1.125rem',
+        '1rem',
         {
-          lineHeight: '1.313rem',
-          fontWeight: '500',
+          lineHeight: '1.5rem',
+          fontWeight: '400',
         },
       ],
       label: [
-        '0.75rem',
+        '1rem',
         {
-          lineHeight: '1.05rem',
-          fontWeight: '900',
+          lineHeight: '1rem',
+          fontWeight: '500',
         },
       ],
     },
