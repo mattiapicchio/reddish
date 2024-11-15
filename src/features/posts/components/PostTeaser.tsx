@@ -13,8 +13,8 @@ export default function PostTeaser({ post, className }: PostTeaserProps) {
     <Link href={`${ROUTES.POST}/${post.id}`}>
       <li className={cn('flex-col border-t border-gray-dark p-2', className)}>
         <div className="cursor-pointer rounded-md hover:bg-gray-dark">
-          <h2 className="text-brand-blue">{post.title}</h2>
-          <p>{post.content}</p>
+          <h2 className="text-smallHeading text-brand-blue">{post.title}</h2>
+          <p className="mt-3 line-clamp-6 sm:line-clamp-4">{post.content}</p>
         </div>
       </li>
     </Link>
