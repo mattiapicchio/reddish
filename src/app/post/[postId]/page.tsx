@@ -48,11 +48,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <article className="mt-8 sm:ml-12">
         <h3 className="text-largeHeading text-brand-blue">{title}</h3>
         <p className="mt-8">{content}</p>
-        {replies && (
-          <div>
-            <RepliesTree replies={replies} />
-          </div>
-        )}
+        {replies && <RepliesTree _replies={replies} />}
       </article>
     </div>
   )
