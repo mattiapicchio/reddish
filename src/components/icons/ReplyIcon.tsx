@@ -2,11 +2,13 @@ interface ReplyIconProps {
   className?: string
   width?: string
   height?: string
+  onClick?: () => void
 }
 
-export function ReplyIcon({ className, width, height }: ReplyIconProps) {
+export function ReplyIcon({ className, width, height, onClick }: ReplyIconProps) {
   return (
     <svg
+      onClick={onClick}
       className={className}
       width={width ?? '24'}
       height={height ?? '24'}

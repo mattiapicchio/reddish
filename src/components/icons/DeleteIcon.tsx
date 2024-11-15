@@ -2,11 +2,13 @@ interface DeleteIconProps {
   className?: string
   width?: string
   height?: string
+  onClick?: () => void
 }
 
-export function DeleteIcon({ className, width, height }: DeleteIconProps) {
+export function DeleteIcon({ className, width, height, onClick }: DeleteIconProps) {
   return (
     <svg
+      onClick={onClick}
       className={className}
       width={width ?? '24'}
       height={height ?? '24'}
