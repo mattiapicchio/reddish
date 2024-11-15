@@ -1,8 +1,10 @@
+import { CancelIcon } from '@/components/icons/CancelIcon'
 import { DeleteIcon } from '@/components/icons/DeleteIcon'
 import { EditIcon } from '@/components/icons/EditIcon'
 import { MinusIcon } from '@/components/icons/MinusIcon'
 import { PlusIcon } from '@/components/icons/PlusIcon'
 import { ReplyIcon } from '@/components/icons/ReplyIcon'
+import { SaveIcon } from '@/components/icons/SaveIcon'
 import { NODE_ACTION } from '@/shared/data/queryKeys'
 import { cn } from '@/utils/cn'
 
@@ -27,6 +29,12 @@ const configurations: ActionConfigurationTypes = {
   },
   [NODE_ACTION.collapse]: {
     icon: <MinusIcon />,
+  },
+  [NODE_ACTION.cancel]: {
+    icon: <CancelIcon />,
+  },
+  [NODE_ACTION.save]: {
+    icon: <SaveIcon />,
   },
 }
 
