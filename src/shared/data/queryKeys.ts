@@ -4,4 +4,6 @@ export const NODE_ACTION = {
   reply: 'reply',
   expand: 'expand',
   collapse: 'collapse',
+  cancel: 'cancel',
+  save: 'save',
 } as const
