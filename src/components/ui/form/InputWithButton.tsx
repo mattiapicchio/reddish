@@ -10,6 +10,10 @@ type InputWithButtonProps = {
   variant?: ButtonProps['variant']
   type?: 'submit' | 'button' | 'reset'
   placeholder: string
+  value?: string
+  buttonDisabled?: boolean
+  onButtonClick?: () => void
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export function InputWithButton({
@@ -19,12 +23,22 @@ export function InputWithButton({
   text = '',
   placeholder,
   variant = 'default',
+  value,
+  buttonDisabled = false,
+  onButtonClick,
+  onInputChange,
   ...inputProps
 }: InputWithButtonProps) {
   return (
     <div className={cn('flex w-full max-w-sm items-center space-x-2', className)}>
-      <Input type={inputType} placeholder={placeholder} {...inputProps} />
-      <Button type={type} variant={variant}>
+      <Input
+        type={inputType}
+        placeholder={placeholder}
+        {...inputProps}
+        onChange={onInputChange}
+        value={value}
+      />
+      <Button type={type} variant={variant} onClick={onButtonClick} disabled={buttonDisabled}>
         {text}
       </Button>
     </div>
