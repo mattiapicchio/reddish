@@ -1,4 +1,5 @@
 import BackButton from '@/components/BackButton'
+import { InputWithButton } from '@/components/ui/form/InputWithButton'
 import { getPost } from '@/features/posts/api/api.posts'
 import RepliesTree from '@/features/posts/components/RepliesTree'
 import { ROUTES } from '@/utils/routes'
@@ -45,9 +46,15 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <div className="page-container flex min-h-screen flex-col">
       <BackButton href={ROUTES.HOME} className="" />
-      <article>
-        <h3>{title}</h3>
-        <p>{content}</p>
+      <article className="mt-8 sm:ml-12">
+        <h3 className="text-largeHeading text-brand-blue">{title}</h3>
+        <p className="mt-8">{content}</p>
+        <InputWithButton
+          type="submit"
+          text="Reply"
+          placeholder="Write a comment..."
+          className="mt-10"
+        />
         {replies && (
           <div>
             <RepliesTree replies={replies} />
