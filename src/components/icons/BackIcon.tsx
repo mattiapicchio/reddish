@@ -1,3 +1,5 @@
+import { cn } from '@/utils/cn'
+
 interface BackIconProps {
   className?: string
   width?: string
@@ -7,7 +9,7 @@ interface BackIconProps {
 export function BackIcon({ className, width, height }: BackIconProps) {
   return (
     <svg
-      className={className}
+      className={cn('active:text-sunflare', className)}
       width={width ?? '24'}
       height={height ?? '24'}
       xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,5 @@
+import { cn } from '@/utils/cn'
+
 interface EditIconProps {
   className?: string
   width?: string
@@ -9,7 +11,7 @@ export function EditIcon({ className, width, height, onClick }: EditIconProps) {
   return (
     <svg
       onClick={onClick}
-      className={className}
+      className={cn('active:text-sunflare', className)}
       width={width ?? '24'}
       height={height ?? '24'}
       xmlns="http://www.w3.org/2000/svg"
