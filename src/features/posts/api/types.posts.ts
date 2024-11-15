@@ -17,12 +17,13 @@ export type Post = {
   replies: Reply[]
 }
 
+// TODO: add Nullable type
 export type Reply = {
   id: number
   content: string
   createdAt: string // ISO 8601 date format
   votes: number
-  replies: Reply[]
+  replies: Reply[] | null
 }
 
 export type Node = Reply | Post
