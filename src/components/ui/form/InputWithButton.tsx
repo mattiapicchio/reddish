@@ -12,6 +12,7 @@ type InputWithButtonProps = {
   placeholder: string
   value?: string
   buttonDisabled?: boolean
+  ref?: React.RefObject<HTMLInputElement>
   onButtonClick?: () => void
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
@@ -27,11 +28,13 @@ export function InputWithButton({
   buttonDisabled = false,
   onButtonClick,
   onInputChange,
+  ref,
   ...inputProps
 }: InputWithButtonProps) {
   return (
     <div className={cn('flex w-full max-w-sm items-center space-x-2', className)}>
       <Input
+        ref={ref}
         type={inputType}
         placeholder={placeholder}
         {...inputProps}
