@@ -13,7 +13,7 @@ export default async function BackButton({ className, href }: BackButtonProps) {
   return (
     <Link
       className={cn(
-        'button-primary flex w-fit items-center justify-center rounded-full p-2',
+        'rounded-full button-primary flex w-fit items-center justify-center p-2',
         className,
       )}
       href={href}
