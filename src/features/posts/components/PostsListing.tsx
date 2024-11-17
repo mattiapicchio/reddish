@@ -2,10 +2,10 @@
 
 import { cn } from '@/utils/cn'
 import { Node } from '@/features/posts/api/types.posts'
-import PostTeaser from './PostTeaser'
+import PostTeaser from '@/features/posts/components/PostTeaser'
 import { Textarea } from '@/components/ui/form/Textarea'
 import { useState } from 'react'
-import { getPosts, postPost } from '../api/api.posts'
+import { getPosts, postPost } from '@/features/posts/api/api.posts'
 import InputWithLabel from '@/components/ui/form/InputWithLabel'
 import { Button } from '@/components/ui/Button'
 

@@ -1,4 +1,4 @@
-import { getBaseRequestConfig } from './getBaseRequestConfig'
+import { getBaseRequestConfig } from '@/connectivity/getBaseRequestConfig'
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL
 

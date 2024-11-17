@@ -1,6 +1,6 @@
 'use client'
 
-import { Input } from './Input'
+import { Input } from '@/components/ui/form/Input'
 import { cn } from '@/utils/cn'
 import { InputHTMLAttributes } from 'react'
 

@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn'
 import Link from 'next/link'
-import { BackIcon } from './icons/BackIcon'
+import { BackIcon } from '@/components/icons/BackIcon'
 
 type BackButtonProps = {
   className?: string

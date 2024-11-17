@@ -1,7 +1,7 @@
 import { cn } from '@/utils/cn'
 import { InputWithButton } from '@/components/ui/form/InputWithButton'
 import { useEffect, useRef, useState } from 'react'
-import NodeAction from './NodeAction'
+import NodeAction from '@/features/posts/components/NodeAction'
 import { NODE_ACTION } from '@/shared/data/queryKeys'
 import useOutsideClickListener from '@/helpers/hooks/useOutsideClickListener'
 import { Node } from '@/features/posts/api/types.posts'

@@ -1,5 +1,5 @@
 import { fetchRequest } from '@/connectivity/fetchRequest'
-import { FetchPostResponse, FetchPostsResponse } from './types.posts'
+import { FetchPostResponse, FetchPostsResponse } from '@/features/posts/api/types.posts'
 import { getBaseRequestConfig } from '@/connectivity/getBaseRequestConfig'
 import { generateRandomId } from '@/utils/nodeUtils'
 

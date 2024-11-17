@@ -2,10 +2,10 @@
 
 import { cn } from '@/utils/cn'
 import { InputWithButton } from '@/components/ui/form/InputWithButton'
-import ReplyBox from './ReplyBox'
+import ReplyBox from '@/features/posts/components/ReplyBox'
 import { useState } from 'react'
 import { isTextNotEmpty } from '@/utils/textUtils'
-import useNode from '../helpers/hooks/useTreeNode'
+import useNode from '@/features/posts/helpers/hooks/useTreeNode'
 import { Node } from '@/features/posts/api/types.posts'
 import { generateNewNodeFromInput } from '@/utils/nodeUtils'
 import { imPush } from '@/utils/immutableUtils'

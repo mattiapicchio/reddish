@@ -1,6 +1,6 @@
 import { cn } from '@/utils/cn'
-import { Button, ButtonProps } from '../Button'
-import { Input } from './Input'
+import { Button, ButtonProps } from '@/components/ui/Button'
+import { Input } from '@/components/ui/form/Input'
 
 type InputWithButtonProps = {
   className?: string
