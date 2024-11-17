@@ -5,6 +5,7 @@ import NodeAction from '@/features/posts/components/NodeAction'
 import { NODE_ACTION } from '@/shared/data/queryKeys'
 import useOutsideClickListener from '@/helpers/hooks/useOutsideClickListener'
 import { Node } from '@/features/posts/api/types.posts'
+import { isTextNotEmpty } from '@/utils/textUtils'
 
 type ReplyBoxProps = {
   className?: string
@@ -109,6 +110,7 @@ export default function ReplyBox({
               onInputChange={(event) => setInput(event.target.value)}
               onButtonClick={() => onHandleReply(reply)}
               ref={replyInputRef}
+              buttonDisabled={!isTextNotEmpty(input)}
             />
           )}
           <div className="flex">

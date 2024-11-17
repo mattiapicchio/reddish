@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { getPosts, postPost } from '@/features/posts/api/api.posts'
 import InputWithLabel from '@/components/ui/form/InputWithLabel'
 import { Button } from '@/components/ui/Button'
+import { isTextNotEmpty } from '@/utils/textUtils'
 
 type PostsListingProps = {
   listing: Node[]
@@ -33,9 +34,12 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
     event.preventDefault()
 
     await postPost({ title, content })
-
-    fetchPosts()
+    await fetchPosts()
+    setContent('')
+    setTitle('')
   }
+
+  const formError = !isTextNotEmpty(title) || !isTextNotEmpty(content)
 
   return (
     <section className={cn('flex-col', className)}>
@@ -54,10 +58,11 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
         />
         <Textarea
           id="content"
+          value={content}
           onChange={(event) => setContent(event.target.value)}
           className="mt-3 w-full max-w-lg"
         />
-        <Button type="submit" className="mt-4">
+        <Button type="submit" className="mt-4" disabled={formError}>
           Submit
         </Button>
       </form>
