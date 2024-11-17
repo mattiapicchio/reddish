@@ -3,19 +3,13 @@ import { getPost } from '@/features/posts/api/api.posts'
 import RepliesTree from '@/features/posts/components/RepliesTree'
 import { ROUTES } from '@/utils/routes'
 
-type PostPageProps = {
-  params: Params
-}
+type Params = Promise<{ postId: string }>
 
-type Params = {
-  postId: string
-}
-
-export async function generateMetadata({ params }: PostPageProps) {
+export async function generateMetadata({ params }: { params: Params }) {
   const { postId } = await params
   const { error, data: post } = await _fetchPost(postId)
 
-  if (error) return
+  if (error) return <div>Handle Error</div>
 
   return {
     title: `${post.title}`,
@@ -33,7 +27,7 @@ async function _fetchPost(id: string) {
   return await getPost({ id })
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default async function PostPage({ params }: { params: Params }) {
   const { postId } = await params
 
   const { error, data: post } = await _fetchPost(postId)
