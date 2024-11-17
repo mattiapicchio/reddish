@@ -40,7 +40,7 @@ export default async function PostPage({ params }: PostPageProps) {
   // TODO: add error handling
   if (error) return <div>Handle Post error</div>
 
-  const { title, content, replies } = post
+  const { title, content } = post
 
   return (
     <div className="page-container flex min-h-screen flex-col">
@@ -48,7 +48,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <article className="mt-8 sm:ml-12">
         <h3 className="text-largeHeading text-brand-blue">{title}</h3>
         <p className="mt-8">{content}</p>
-        {replies && <RepliesTree _replies={replies} />}
+        <RepliesTree _postTree={post} />
       </article>
     </div>
   )

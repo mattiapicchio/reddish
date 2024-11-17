@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/utils/cn'
-import { Post } from '../api/types.posts'
+import { Node } from '@/features/posts/api/types.posts'
 import PostTeaser from './PostTeaser'
 import { Textarea } from '@/components/ui/form/Textarea'
 import { useState } from 'react'
@@ -10,12 +10,12 @@ import InputWithLabel from '@/components/ui/form/InputWithLabel'
 import { Button } from '@/components/ui/Button'
 
 type PostsListingProps = {
-  listing: Post[]
+  listing: Node[]
   className?: string
 }
 
 export default function PostsListing({ listing, className }: PostsListingProps) {
-  const [posts, setPosts] = useState<Post[]>(listing)
+  const [posts, setPosts] = useState<Node[]>(listing)
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
@@ -40,7 +40,7 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
   return (
     <section className={cn('flex-col', className)}>
       <ol className="space-y-3">
-        {posts?.map((post: Post) => <PostTeaser post={post} key={post.id} />)}
+        {posts?.map((post: Node) => <PostTeaser post={post} key={post.id} />)}
       </ol>
       <form onSubmit={handleSubmit} className="mt-6 border-t border-brand-orange">
         <InputWithLabel

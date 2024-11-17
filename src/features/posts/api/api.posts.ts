@@ -1,6 +1,7 @@
 import { fetchRequest } from '@/connectivity/fetchRequest'
 import { FetchPostResponse, FetchPostsResponse } from './types.posts'
 import { getBaseRequestConfig } from '@/connectivity/getBaseRequestConfig'
+import { generateRandomId } from '@/utils/textUtils'
 
 export async function getPosts() {
   return await fetchRequest<FetchPostsResponse>('posts')
@@ -15,12 +16,12 @@ export async function postPost({ content, title }: { content: string; title: str
   const requestConfig = Object.assign({}, baseRequestConfig, {
     method: 'POST',
     body: JSON.stringify({
-      id: new Date().getTime(),
+      id: generateRandomId(),
       title,
       content,
       createdAt: new Date().toISOString(),
       votes: 0,
-      replies: null,
+      replies: [],
     }),
   })
 

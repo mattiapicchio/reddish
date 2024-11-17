@@ -1,10 +1,10 @@
 import { cn } from '@/utils/cn'
-import { Post } from '../api/types.posts'
+import { Node } from '@/features/posts/api/types.posts'
 import Link from 'next/link'
 import { ROUTES } from '@/utils/routes'
 
 type PostTeaserProps = {
-  post: Post
+  post: Node
   className?: string
 }
 

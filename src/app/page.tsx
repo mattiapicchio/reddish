@@ -1,6 +1,9 @@
 import { getPosts } from '@/features/posts/api/api.posts'
 import PostsListing from '@/features/posts/components/PostsListing'
 
+// TODO: refactor relative imports
+// TODO: add jsdocs
+
 async function _fetchPosts() {
   'use server'
 
