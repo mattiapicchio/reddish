@@ -52,7 +52,6 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
     <div className={cn('mt-4', className)}>
       <InputWithButton
         type="submit"
-        text="Reply"
         placeholder="Write a top level comment..."
         className="mt-10"
         value={reply}

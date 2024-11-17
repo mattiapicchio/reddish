@@ -1,12 +1,12 @@
 import { cn } from '@/utils/cn'
 import { Button, ButtonProps } from '@/components/ui/Button'
 import { Input } from '@/components/ui/form/Input'
+import { SendIcon } from '@/components/icons/SendIcon'
 
 type InputWithButtonProps = {
   className?: string
   inputClassName?: string
   inputType?: string
-  text: string
   variant?: ButtonProps['variant']
   type?: 'submit' | 'button' | 'reset'
   placeholder: string
@@ -21,7 +21,6 @@ export function InputWithButton({
   className,
   type = 'submit',
   inputType = 'text',
-  text = '',
   placeholder,
   variant = 'default',
   value,
@@ -41,7 +40,7 @@ export function InputWithButton({
         value={value}
       />
       <Button type={type} variant={variant} onClick={onButtonClick} disabled={buttonDisabled}>
-        {text}
+        <SendIcon className="text-white" />
       </Button>
     </div>
   )

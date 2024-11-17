@@ -103,7 +103,6 @@ export default function ReplyBox({
           {showInput && (
             <InputWithButton
               type="submit"
-              text="Reply"
               placeholder="Write a comment..."
               className="mt-3"
               value={input}
