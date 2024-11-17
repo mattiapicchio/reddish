@@ -45,11 +45,9 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
     setPostTree(finalStructure)
   }
 
-  const editNodeHandler = (node, input) => {
-    // const finalStructure = editNode(replies, nodeId, nodeObj)
-    // setReplies(finalStructure)
-    console.log('EDIT node: ', node)
-    console.log('EDIT input: ', input)
+  const editNodeHandler = (node: Node, input: string) => {
+    const finalStructure = editNode(postTree, node, input)
+    setPostTree(finalStructure)
   }
 
   const deleteNodeHandler = (node) => {

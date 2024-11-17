@@ -60,11 +60,11 @@ export default function ReplyBox({
   }
 
   const onSaveEditReply = () => {
-    setIsEditMode(false)
-
     if (replyTextRef.current) {
-      onHandleInsertNode(reply, replyTextRef.current.innerText)
+      onHandleEditNode(reply, replyTextRef.current.innerText)
     }
+
+    setIsEditMode(false)
   }
 
   const onCancelEditReply = () => {

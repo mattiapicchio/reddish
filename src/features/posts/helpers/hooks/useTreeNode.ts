@@ -1,7 +1,6 @@
 import { generateRandomId } from '@/utils/textUtils'
 import { Node } from '@/features/posts/api/types.posts'
 
-
 const useNode = () => {
   // add a new node to the tree structure at a speficic position
   const insertNode = function (tree: Node, node: Node, input: string): Node {
@@ -29,15 +28,15 @@ const useNode = () => {
     return { ...tree, replies: updatedTree }
   }
 
-  const editNode = (tree, commentId, nodeObj: Node) => {
-    if (tree.id === commentId) {
-      tree.name = nodeObj.content
+  const editNode = (tree: Node, node: Node, input: string): Node => {
+    if (tree.id === node.id) {
+      tree.content = input
 
       return tree
     }
 
     tree.replies.map((ob) => {
-      return editNode(ob, commentId, nodeObj)
+      return editNode(ob, node, input)
     })
 
     return { ...tree }
