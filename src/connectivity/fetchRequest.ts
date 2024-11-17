@@ -7,7 +7,7 @@ export async function fetchRequest<TResponse>(
   config?: RequestInit,
 ): Promise<TResponse> {
   const url = `${apiUrl + path}`
-  // Basic setup - can be extended with project specific request config headers and error handling
+  // * Basic setup - can be extended with project specific request config headers
 
   const baseRequestConfig = getBaseRequestConfig()
 
@@ -15,8 +15,9 @@ export async function fetchRequest<TResponse>(
 
   const response = await fetch(url, requestConfig)
 
+  // * implement API error handling strategy here, error parser, custom typed errors, etc...
+
   if (!response.ok) {
-    // TODO: add API error handling
     throw new Error('Something went wrong')
   }
 

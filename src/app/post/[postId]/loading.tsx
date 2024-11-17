@@ -1,4 +1,4 @@
-import FullscreenLoader from '@/components/FullscreenLoader'
+import FullscreenLoader from '@/components/layouts/FullscreenLoader'
 import React from 'react'
 
 function Loading() {

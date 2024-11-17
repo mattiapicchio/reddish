@@ -1,4 +1,5 @@
 import BackButton from '@/components/BackButton'
+import RedditError from '@/components/layouts/RedditError'
 import { getPost } from '@/features/posts/api/api.posts'
 import RepliesTree from '@/features/posts/components/RepliesTree'
 import { ROUTES } from '@/utils/routes'
@@ -31,8 +32,7 @@ export default async function PostPage({ params }: { params: Params }) {
   const { postId } = await params
 
   const { error, data: post } = await _fetchPost(postId)
-  // TODO: add error handling
-  if (error) return <div>Handle Post error</div>
+  if (error) return <RedditError />
 
   const { title, content } = post
 

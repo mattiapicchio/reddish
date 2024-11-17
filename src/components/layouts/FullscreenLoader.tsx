@@ -1,4 +1,4 @@
-import { RedditIcon } from './icons/RedditIcon'
+import { RedditIcon } from '@/components/icons/RedditIcon'
 
 function FullscreenLoader() {
   return (
