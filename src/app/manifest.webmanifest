@@ -1,0 +1,31 @@
+{
+  "name": "Reddish",
+  "short_name": "Reddish",
+  "description": "Reddit like infinite nested comments demo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6CF401",
+  "theme_color": "#FF4500",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
