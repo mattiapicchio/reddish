@@ -1,29 +1,18 @@
 export type FetchPostsResponse = {
-  data: Post[]
+  data: Node[]
   error?: string
 }
 
 export type FetchPostResponse = {
-  data: Post
+  data: Node
   error?: string
 }
 
-export type Post = {
+export type Node = {
   id: number
-  title: string
+  title?: string | null
   content: string
   createdAt: string // ISO 8601 date format
-  votes: number
-  replies: Reply[]
+  votes?: number
+  replies: Node[]
 }
-
-// TODO: add Nullable type
-export type Reply = {
-  id: number
-  content: string
-  createdAt: string // ISO 8601 date format
-  votes: number
-  replies: Reply[] | null
-}
-
-export type Node = Reply | Post
