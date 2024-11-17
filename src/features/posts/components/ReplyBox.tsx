@@ -37,6 +37,7 @@ export default function ReplyBox({
     onHandleInsertNode(node, input)
     setShowInput(false)
     setInput('')
+    setIsExpanded(true)
   }
 
   const onHandleDeleteReply = (node: Node) => {

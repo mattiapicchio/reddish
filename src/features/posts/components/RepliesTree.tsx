@@ -32,19 +32,18 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
   const { insertNode, editNode, deleteNode } = useNode()
 
   const insertNodeHandler = (node: Node, input: string) => {
-    const finalStructure = insertNode(postTree, node, input)
-
-    setPostTree(finalStructure)
+    const updatedTree = insertNode(postTree, node, input)
+    setPostTree(updatedTree)
   }
 
   const editNodeHandler = (node: Node, input: string) => {
-    const finalStructure = editNode(postTree, node, input)
-    setPostTree(finalStructure)
+    const updatedTree = editNode(postTree, node, input)
+    setPostTree(updatedTree)
   }
 
   const deleteNodeHandler = (node: Node) => {
-    const finalStructure = deleteNode(postTree, node)
-    setPostTree(finalStructure)
+    const updatedTree = deleteNode(postTree, node)
+    setPostTree(updatedTree)
   }
 
   const hasChildrenNodes = !!postTree?.replies?.length
