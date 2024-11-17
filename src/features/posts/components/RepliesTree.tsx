@@ -5,7 +5,7 @@ import { InputWithButton } from '@/components/ui/form/InputWithButton'
 import ReplyBox from '@/features/posts/components/ReplyBox'
 import { useState } from 'react'
 import { isTextNotEmpty } from '@/utils/textUtils'
-import useNode from '@/features/posts/helpers/hooks/useTreeNode'
+import useTreeNode from '@/features/posts/helpers/hooks/useTreeNode'
 import { Node } from '@/features/posts/api/types.posts'
 import { generateNewNodeFromInput } from '@/utils/nodeUtils'
 import { imPush } from '@/utils/immutableUtils'
@@ -29,7 +29,7 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
     setReply('')
   }
 
-  const { insertNode, editNode, deleteNode } = useNode()
+  const { insertNode, editNode, deleteNode } = useTreeNode()
 
   const insertNodeHandler = (node: Node, input: string) => {
     const updatedTree = insertNode(postTree, node, input)

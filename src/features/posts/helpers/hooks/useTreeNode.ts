@@ -1,8 +1,20 @@
 import { Node } from '@/features/posts/api/types.posts'
 import { generateNewNodeFromInput } from '@/utils/nodeUtils'
 
-const useNode = () => {
-  // add a new node to the tree structure at a speficic position
+/**
+ * Hook to manage node in the tree structure.
+ * @returns {Object} - The tree handlers for manipulating the tree.
+ */
+
+const useTreeNode = () => {
+  /**
+   * Inserts a new node to the tree structure at a speficic position
+   *
+   * @param {Node} tree - The initial tree structure.
+   * @param {Node} node - The current node.
+   * @param {string} input - The text inputed by the user.
+   *
+   */
   const insertNode = function (tree: Node, node: Node, input: string): Node {
     // if the current node has an id that matches the comment id
     if (tree.id === node.id) {
@@ -21,6 +33,15 @@ const useNode = () => {
     return { ...tree, replies: updatedTree }
   }
 
+  /**
+   * Edits the content of an existing node in the tree.
+   *
+   * @param {Node} tree - The initial tree structure.
+   * @param {Node} node - The current node.
+   * @param {string} input - The text inputed by the user.
+   *
+   */
+
   const editNode = (tree: Node, node: Node, input: string): Node => {
     if (tree.id === node.id) {
       tree.content = input
@@ -36,6 +57,14 @@ const useNode = () => {
   }
 
   const deleteNode = (tree: Node, node: Node) => {
+    /**
+     * Deletes a node from the tree.
+     *
+     * @param {Node} tree - The initial tree structure.
+     * @param {Node} node - The node to be deleted.
+     *
+     */
+
     // reteirate over the replies array of the tree object
     for (const currentItem of tree.replies) {
       // for each node, check if the id matches the id of the node to be deleted
@@ -58,4 +87,4 @@ const useNode = () => {
   return { insertNode, editNode, deleteNode }
 }
 
-export default useNode
+export default useTreeNode
