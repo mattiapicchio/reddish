@@ -70,7 +70,12 @@ export default function ReplyBox({
   const hasChildrenNodes = !!reply?.replies?.length
 
   return (
-    <div className={cn('mt-6 w-fit rounded-b-md border-l border-brand-blue pl-6', className)}>
+    <div
+      className={cn(
+        'mt-6 w-full rounded-b-md border-l border-brand-blue pl-2 sm:w-fit sm:pl-6',
+        className,
+      )}
+    >
       <div className="border-brand-blue py-3">
         <div className="flex" ref={editContainer}>
           <span
