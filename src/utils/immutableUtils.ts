@@ -11,21 +11,6 @@ export function imArrayMerge<T, U>(first: T[], second: U[]): (T | U)[] {
   return [...safeSpreadFirst, ...safeSpreadSecond]
 }
 
-export function imDeleteFromArray(array = [], index: number) {
-  const firstPart = array.slice(0, index)
-  const secondPart = array.slice(index + 1)
-
-  return imArrayMerge(firstPart, secondPart)
-}
-
-export function imDeleteFromArrayById(array = [], idFieldName: string, idValue: number) {
-  const indexToDelete = array.findIndex((arrayItem) => {
-    return arrayItem[idFieldName] === idValue
-  })
-
-  return imDeleteFromArray(array, indexToDelete)
-}
-
 export function imSetToObj(obj = {}, key: string, value: string) {
   return {
     ...obj,

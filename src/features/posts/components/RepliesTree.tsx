@@ -4,32 +4,25 @@ import { cn } from '@/utils/cn'
 import { InputWithButton } from '@/components/ui/form/InputWithButton'
 import ReplyBox from './ReplyBox'
 import { useState } from 'react'
-import { generateRandomId, isTextNotEmpty } from '@/utils/textUtils'
+import { isTextNotEmpty } from '@/utils/textUtils'
 import useNode from '../helpers/hooks/useTreeNode'
 import { Node } from '@/features/posts/api/types.posts'
+import { generateNewNodeFromInput } from '@/utils/nodeUtils'
+import { imPush } from '@/utils/immutableUtils'
 
 type RepliesTreeProps = {
   className?: string
   _postTree: Node
 }
 
-// TODO: refactor comments/replies naming
-
 export default function RepliesTree({ _postTree, className }: RepliesTreeProps) {
   const [postTree, setPostTree] = useState(_postTree)
   const [reply, setReply] = useState('')
 
   const onHandlePostReply = () => {
-    const newReply = {
-      id: generateRandomId(),
-      content: reply,
-      createdAt: new Date().toISOString(),
-      votes: 0,
-      replies: [],
-    } as Node
+    const newReply = generateNewNodeFromInput(reply)
 
-    // TODO: check structured clone
-    const updatedRepliesTree = [...postTree.replies, newReply]
+    const updatedRepliesTree = imPush(postTree.replies, newReply)
     const updatedPostTree = { ...postTree, replies: updatedRepliesTree }
 
     setPostTree(updatedPostTree)
@@ -38,7 +31,6 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
 
   const { insertNode, editNode, deleteNode } = useNode()
 
-  // TODO: jsdocs: parent node and new added text
   const insertNodeHandler = (node: Node, input: string) => {
     const finalStructure = insertNode(postTree, node, input)
 
@@ -52,8 +44,7 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
 
   const deleteNodeHandler = (node: Node) => {
     const finalStructure = deleteNode(postTree, node)
-    const temp = { ...finalStructure }
-    setPostTree(temp)
+    setPostTree(finalStructure)
   }
 
   const hasChildrenNodes = !!postTree?.replies?.length

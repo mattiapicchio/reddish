@@ -1,7 +1,7 @@
 import { fetchRequest } from '@/connectivity/fetchRequest'
 import { FetchPostResponse, FetchPostsResponse } from './types.posts'
 import { getBaseRequestConfig } from '@/connectivity/getBaseRequestConfig'
-import { generateRandomId } from '@/utils/textUtils'
+import { generateRandomId } from '@/utils/nodeUtils'
 
 export async function getPosts() {
   return await fetchRequest<FetchPostsResponse>('posts')
