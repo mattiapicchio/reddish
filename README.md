@@ -1,8 +1,5 @@
 # Reddish
 
-This project demonstrates Reddit-like infinite nested comment functionality [Frontend only]. \
-The data is not saved to a database nor stored in memory. A simple mocked API using Next.js server capabilities is used to fetch the posts from the hardcoded data.
-
 #### Table of Contents
 
 - [Project](#project)
@@ -15,8 +12,9 @@ The data is not saved to a database nor stored in memory. A simple mocked API us
 
 ### Project
 
-Reddit like messaging board with infinite nested comments. \
-API functionality is mocked using Next.js route handlers
+Reddit like messaging board with infinite nested comments [Frontend only]. \
+A simple mocked API using Next.js server capabilities is used to fetch the posts from the hardcoded data.
+The data is not saved to a database nor stored in memory.
 
 Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript.
 
