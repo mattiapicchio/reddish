@@ -1,17 +1,17 @@
 import { cn } from '@/utils/cn'
-import { Reply } from '@/features/posts/api/types.posts'
 import { InputWithButton } from '@/components/ui/form/InputWithButton'
 import { useEffect, useRef, useState } from 'react'
 import NodeAction from './NodeAction'
 import { NODE_ACTION } from '@/shared/data/queryKeys'
 import useOutsideClickListener from '@/helpers/hooks/useOutsideClickListener'
+import { Node } from '@/features/posts/api/types.posts'
 
 type ReplyBoxProps = {
   className?: string
-  reply: Reply
-  onHandleInsertNode: (node: Reply, input: string) => void
-  onHandleEditNode: (node: Reply, input: string) => void
-  onHandleDeleteNode: (node: Reply) => void
+  reply: Node
+  onHandleInsertNode: (node: Node, input: string) => void
+  onHandleEditNode: (node: Node, input: string) => void
+  onHandleDeleteNode: (node: Node) => void
 }
 
 export default function ReplyBox({
@@ -33,7 +33,7 @@ export default function ReplyBox({
   useOutsideClickListener(replyInputRef, showInput, () => setShowInput(false))
   useOutsideClickListener(editContainer, isEditMode, () => onCancelEditReply())
 
-  const onHandleReply = (node: Reply) => {
+  const onHandleReply = (node: Node) => {
     // if (isEditMode) {
     //   onHandleEditNode(node, replyTextRef?.current?.innerText || '')
     //   setIsEditMode(false)
@@ -49,7 +49,7 @@ export default function ReplyBox({
     setInput('')
   }
 
-  const onHandleDeleteReply = (node: Reply) => {
+  const onHandleDeleteReply = (node: Node) => {
     onHandleDeleteNode(node)
   }
 
@@ -148,7 +148,7 @@ export default function ReplyBox({
       </div>
       {hasChildrenNodes &&
         isExpanded &&
-        reply?.replies?.map((reply: Reply) => {
+        reply.replies.map((reply: Node) => {
           return (
             <ReplyBox
               key={reply.id}
