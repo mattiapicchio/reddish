@@ -20,7 +20,6 @@ module.exports = {
     'no-console': 1,
     '@typescript-eslint/no-unused-vars': 1,
     '@typescript-eslint/no-explicit-any': 1,
-    'id-length': [2, { min: 2, properties: 'never' }],
     semi: [2, 'never'],
     'padding-line-between-statements': [
       'warn',
