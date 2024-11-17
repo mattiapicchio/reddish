@@ -34,16 +34,6 @@ export default function ReplyBox({
   useOutsideClickListener(editContainer, isEditMode, () => onCancelEditReply())
 
   const onHandleReply = (node: Node) => {
-    // if (isEditMode) {
-    //   onHandleEditNode(node, replyTextRef?.current?.innerText || '')
-    //   setIsEditMode(false)
-    //   setShowInput(false)
-    //   setInput('')
-    // } else {
-    //   onHandleInsertNode(node, input)
-    //   setShowInput(false)
-    //   setInput('')
-    // }
     onHandleInsertNode(node, input)
     setShowInput(false)
     setInput('')

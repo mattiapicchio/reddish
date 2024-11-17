@@ -42,19 +42,25 @@ const useNode = () => {
     return { ...tree }
   }
 
-  const deleteNode = (tree, id) => {
+  const deleteNode = (tree: Node, node: Node) => {
+    // reteirate over the replies array of the tree object
     for (let i = 0; i < tree.replies.length; i++) {
+      // for each node, check if the id matches the id of the node to be deleted
       const currentItem = tree.replies[i]
 
-      if (currentItem.id === id) {
+      if (currentItem.id === node.id) {
+        // remove current node from the replies array
         tree.replies.splice(i, 1)
 
+        // return updated tree object
         return tree
       } else {
-        deleteNode(currentItem, id)
+        // if the id of the given node to delete does not match the current node id the function calls itself recursively
+        deleteNode(currentItem, node)
       }
     }
 
+    // if the id is not found in the tree, the function returns the tree object
     return tree
   }
 

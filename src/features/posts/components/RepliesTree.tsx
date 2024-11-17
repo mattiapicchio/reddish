@@ -50,11 +50,10 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
     setPostTree(finalStructure)
   }
 
-  const deleteNodeHandler = (node) => {
-    // const finalStructure = deleteNode(replies, nodeId)
-    // const temp = { ...finalStructure }
-    // setPostTree(temp)
-    console.log('DELETE: ', node)
+  const deleteNodeHandler = (node: Node) => {
+    const finalStructure = deleteNode(postTree, node)
+    const temp = { ...finalStructure }
+    setPostTree(temp)
   }
 
   const hasChildrenNodes = !!postTree?.replies?.length
