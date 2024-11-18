@@ -25,6 +25,11 @@ Install the Node version listed in [`.nvmrc`](.nvmrc).
 ```sh
 nvm use
 ```
+Create an `.env` file in the root of the project and add the following:
+
+```sh
+NEXT_PUBLIC_API_URL=http://localhost:3000/api/
+```
 
 ### Development server
 
