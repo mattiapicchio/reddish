@@ -14,7 +14,7 @@
 
 Reddit like messaging board with infinite nested comments [Frontend only]. \
 
-Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript, mockApi.
+Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript, MockApi.
 
 ### Setup
 
