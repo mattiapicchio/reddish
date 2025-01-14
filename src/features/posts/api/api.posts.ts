@@ -20,7 +20,6 @@ export async function postPost({ content, title }: { content: string; title: str
       title,
       content,
       createdAt: new Date().toISOString(),
-      votes: 0,
       replies: [],
     }),
   })

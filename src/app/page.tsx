@@ -9,7 +9,8 @@ async function _fetchPosts() {
 }
 
 export default async function Home() {
-  const { data: posts } = await _fetchPosts()
+  // TODO: error handling
+  const posts = await _fetchPosts()
 
   return (
     <div className="page-container">

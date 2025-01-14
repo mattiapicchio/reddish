@@ -21,7 +21,5 @@ export async function fetchRequest<TResponse>(
     throw new Error('Something went wrong')
   }
 
-  const data = await response.json()
-
-  return data
+  return await response.json()
 }

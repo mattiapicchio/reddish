@@ -8,9 +8,7 @@ type Params = Promise<{ postId: string }>
 
 export async function generateMetadata({ params }: { params: Params }) {
   const { postId } = await params
-  const { error, data: post } = await _fetchPost(postId)
-
-  if (error) return <div>Handle Error</div>
+  const post = await _fetchPost(postId)
 
   return {
     title: `${post.title}`,
@@ -31,8 +29,8 @@ async function _fetchPost(id: string) {
 export default async function PostPage({ params }: { params: Params }) {
   const { postId } = await params
 
-  const { error, data: post } = await _fetchPost(postId)
-  if (error) return <RedditError />
+  const post = await _fetchPost(postId)
+  if (!post) return <RedditError />
 
   const { title, content } = post
 

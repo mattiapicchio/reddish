@@ -21,9 +21,9 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
   const [content, setContent] = useState('')
 
   const fetchPosts = async () => {
-    const { error, data } = await getPosts()
+    const data = await getPosts()
 
-    if (error) {
+    if (!data) {
       setPosts(listing)
     }
 
@@ -34,12 +34,15 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
     event.preventDefault()
 
     await postPost({ title, content })
-    await fetchPosts()
+    await fetchPosts() // TODO: investigate
+    // TODO: refactor clear form
     setContent('')
     setTitle('')
   }
 
   const formError = !isTextNotEmpty(title) || !isTextNotEmpty(content)
+
+  // TODO: refactor form component
 
   return (
     <section className={cn('flex-col', className)}>
