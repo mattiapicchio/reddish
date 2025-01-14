@@ -13,10 +13,8 @@
 ### Project
 
 Reddit like messaging board with infinite nested comments [Frontend only]. \
-A simple mocked API using Next.js server capabilities is used to fetch the posts from the hardcoded data.
-The data is not saved to a database nor stored in memory.
 
-Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript.
+Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript, mockApi.
 
 ### Setup
 
@@ -25,10 +23,11 @@ Install the Node version listed in [`.nvmrc`](.nvmrc).
 ```sh
 nvm use
 ```
+
 Create an `.env` file in the root of the project and add the following:
 
 ```sh
-NEXT_PUBLIC_API_URL=http://localhost:3000/api/
+NEXT_PUBLIC_API_URL=https://67869291f80b78923aa7695a.mockapi.io/api/v1/
 ```
 
 ### Development server
