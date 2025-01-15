@@ -20,6 +20,8 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
   const [reply, setReply] = useState('')
 
   const onHandlePostReply = () => {
+    if (!isTextNotEmpty(reply)) return
+
     const newReply = generateNewNodeFromInput(reply)
 
     const updatedRepliesTree = imPush(postTree.replies, newReply)
@@ -57,6 +59,9 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
         value={reply}
         onInputChange={(event) => setReply(event.target.value)}
         onButtonClick={onHandlePostReply}
+        onHandleKeyDown={(event) => {
+          if (event.key === 'Enter') onHandlePostReply()
+        }}
         buttonDisabled={!isTextNotEmpty(reply)}
       />
       {hasChildrenNodes &&

@@ -87,6 +87,7 @@ export default function ReplyBox({
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 event.preventDefault()
+                onSaveEditReply()
               }
             }}
           >
@@ -109,8 +110,12 @@ export default function ReplyBox({
               value={input}
               onInputChange={(event) => setInput(event.target.value)}
               onButtonClick={() => onHandleReply(reply)}
+              onHandleKeyDown={(event) => {
+                if (event.key === 'Enter') onHandleReply(reply)
+              }}
               ref={replyInputRef}
               buttonDisabled={!isTextNotEmpty(input)}
+              autoFocus
             />
           )}
           <div className="flex">

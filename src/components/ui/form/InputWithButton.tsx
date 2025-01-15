@@ -3,17 +3,19 @@ import { Button, ButtonProps } from '@/components/ui/Button'
 import { Input } from '@/components/ui/form/Input'
 import { SendIcon } from '@/components/icons/SendIcon'
 
-type InputWithButtonProps = {
+interface InputWithButtonProps {
   className?: string
   inputClassName?: string
   inputType?: string
   variant?: ButtonProps['variant']
-  type?: 'submit' | 'button' | 'reset'
+  type: 'submit' | 'button' | 'reset'
   placeholder: string
   value?: string
   buttonDisabled?: boolean
   ref?: React.RefObject<HTMLInputElement>
+  autoFocus?: boolean
   onButtonClick?: () => void
+  onHandleKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -26,6 +28,7 @@ export function InputWithButton({
   value,
   buttonDisabled = false,
   onButtonClick,
+  onHandleKeyDown,
   onInputChange,
   ref,
   ...inputProps
@@ -37,6 +40,7 @@ export function InputWithButton({
         placeholder={placeholder}
         {...inputProps}
         onChange={onInputChange}
+        onKeyDown={onHandleKeyDown}
         value={value}
       />
       <Button type={type} variant={variant} onClick={onButtonClick} disabled={buttonDisabled}>
