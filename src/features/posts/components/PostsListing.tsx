@@ -33,16 +33,22 @@ export default function PostsListing({ listing, className }: PostsListingProps) 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault()
 
-    await postPost({ title, content })
-    await fetchPosts() // TODO: investigate
-    // TODO: refactor clear form
+    try {
+      await postPost({ title, content })
+      await fetchPosts()
+
+      // TODO: add error handling - manage case when post fails to be created
+    } finally {
+      onClearForm()
+    }
+  }
+
+  const onClearForm = () => {
     setContent('')
     setTitle('')
   }
 
   const formError = !isTextNotEmpty(title) || !isTextNotEmpty(content)
-
-  // TODO: refactor form component
 
   return (
     <section className={cn('flex-col', className)}>

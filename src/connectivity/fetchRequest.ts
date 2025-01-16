@@ -15,9 +15,10 @@ export async function fetchRequest<TResponse>(
 
   const response = await fetch(url, requestConfig)
 
-  // * implement API error handling strategy here, error parser, custom typed errors, etc...
+  // ! implement API error handling strategy here, error parser, custom typed errors, i18n error messages, etc...
 
   if (!response.ok) {
+    // * no fetch strategy in place --> simply bubbling up a generic error message
     throw new Error('Something went wrong')
   }
 
