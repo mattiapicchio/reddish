@@ -1,5 +1,7 @@
 # Reddish
 
+`!NB: This project is a functionality demo and not meant for production use.`
+
 #### Table of Contents
 
 - [Project](#project)
@@ -12,7 +14,7 @@
 
 ### Project
 
-Reddit like messaging board with infinite nested comments [Frontend only]. \
+Reddit like messaging board with infinite nested comments. \
 
 Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript, MockApi.
 
