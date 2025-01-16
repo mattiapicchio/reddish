@@ -16,7 +16,7 @@
 
 Reddit like messaging board with infinite nested comments. \
 
-Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript, MockApi.
+Tech stack: Next.js 15, React 19 RC, Tailwind, Typescript, Shadcn UI, MockApi.
 
 ### Setup
 
@@ -110,3 +110,5 @@ npx next lint
 [React 19](https://react.dev/blog/2024/04/25/react-19)
 
 [Tailwind](https://v2.tailwindcss.com/docs)
+
+[Shadcn UI](https://ui.shadcn.com/)
