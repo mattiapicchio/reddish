@@ -6,6 +6,7 @@ import { NODE_ACTION } from '@/shared/data/queryKeys'
 import useOutsideClickListener from '@/helpers/hooks/useOutsideClickListener'
 import { Node } from '@/features/posts/api/types.posts'
 import { isTextNotEmpty } from '@/utils/textUtils'
+import useInputKeyHandlers from '@/helpers/hooks/useInputKeyHandlers'
 
 type ReplyBoxProps = {
   className?: string
@@ -31,14 +32,18 @@ export default function ReplyBox({
   const editContainer = useRef(null)
   const replyTextRef = useRef<HTMLSpanElement>(null)
 
-  useOutsideClickListener(replyInputRef, showInput, () => setShowInput(false))
+  useOutsideClickListener(replyInputRef, showInput, () => onClearReplyInput())
   useOutsideClickListener(editContainer, isEditMode, () => onCancelEditReply())
 
   const onHandleReply = (node: Node) => {
     onHandleInsertNode(node, input)
+    onClearReplyInput()
+    setIsExpanded(true)
+  }
+
+  const onClearReplyInput = () => {
     setShowInput(false)
     setInput('')
-    setIsExpanded(true)
   }
 
   const onHandleDeleteReply = (node: Node) => {
@@ -68,6 +73,9 @@ export default function ReplyBox({
     replyTextRef?.current?.focus()
   }, [isEditMode])
 
+  const handleKeyDownOnEdit = useInputKeyHandlers(onSaveEditReply, onCancelEditReply)
+  const handleKeyDownOnSubmit = useInputKeyHandlers(() => onHandleReply(reply), onClearReplyInput)
+
   const hasChildrenNodes = !!reply?.replies?.length
 
   return (
@@ -84,17 +92,7 @@ export default function ReplyBox({
             suppressContentEditableWarning={isEditMode}
             ref={replyTextRef}
             className="h-auto whitespace-pre-wrap p-2 text-body outline-none focus:rounded-lg focus:ring-1 focus:ring-brand-orange"
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                event.preventDefault()
-                onSaveEditReply()
-              }
-
-              if (event.key === 'Escape') {
-                event.preventDefault()
-                onCancelEditReply()
-              }
-            }}
+            onKeyDown={handleKeyDownOnEdit}
           >
             {reply.content}
           </span>
@@ -115,9 +113,7 @@ export default function ReplyBox({
               value={input}
               onInputChange={(event) => setInput(event.target.value)}
               onButtonClick={() => onHandleReply(reply)}
-              onHandleKeyDown={(event) => {
-                if (event.key === 'Enter') onHandleReply(reply)
-              }}
+              onHandleKeyDown={handleKeyDownOnSubmit}
               ref={replyInputRef}
               buttonDisabled={!isTextNotEmpty(input)}
               autoFocus

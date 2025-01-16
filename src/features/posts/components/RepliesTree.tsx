@@ -9,6 +9,7 @@ import useTreeNode from '@/features/posts/helpers/hooks/useTreeNode'
 import { Node } from '@/features/posts/api/types.posts'
 import { generateNewNodeFromInput } from '@/utils/nodeUtils'
 import { imPush } from '@/utils/immutableUtils'
+import useInputKeyHandlers from '@/helpers/hooks/useInputKeyHandlers'
 
 type RepliesTreeProps = {
   className?: string
@@ -48,6 +49,8 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
     setPostTree(updatedTree)
   }
 
+  const handleKeyDownOnSubmit = useInputKeyHandlers(onHandlePostReply, () => setReply(''))
+
   const hasChildrenNodes = !!postTree?.replies?.length
 
   return (
@@ -59,9 +62,7 @@ export default function RepliesTree({ _postTree, className }: RepliesTreeProps) 
         value={reply}
         onInputChange={(event) => setReply(event.target.value)}
         onButtonClick={onHandlePostReply}
-        onHandleKeyDown={(event) => {
-          if (event.key === 'Enter') onHandlePostReply()
-        }}
+        onHandleKeyDown={handleKeyDownOnSubmit}
         buttonDisabled={!isTextNotEmpty(reply)}
       />
       {hasChildrenNodes &&
