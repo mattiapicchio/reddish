@@ -89,6 +89,11 @@ export default function ReplyBox({
                 event.preventDefault()
                 onSaveEditReply()
               }
+
+              if (event.key === 'Escape') {
+                event.preventDefault()
+                onCancelEditReply()
+              }
             }}
           >
             {reply.content}
