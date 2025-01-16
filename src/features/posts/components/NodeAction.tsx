@@ -52,7 +52,10 @@ export default function NodeAction({ action, classname, onClickCallback }: NodeA
   const config = getConfiguration(action)
 
   return (
-    <div className={cn('m-2 cursor-pointer', classname)} onClick={onClickCallback}>
+    <div
+      className={cn('m-2 cursor-pointer hover:text-brand-blue', classname)}
+      onClick={onClickCallback}
+    >
       {config.icon}
     </div>
   )
